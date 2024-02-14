@@ -1,0 +1,3 @@
+[submodule "jftt-compiler"]
+	path = jftt-compiler
+	url = https://github.com/SpectraL519/jftt-compiler.git
