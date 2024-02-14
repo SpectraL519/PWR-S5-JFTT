@@ -1,0 +1,39 @@
+2 3+4*
+|-> = 20
+
+1 2 3 4 + * -
+|-> = -13
+
+-1 2 -3 4 + * -
+|-> = -3
+
+8 -7 6 -5 4 * -3 % / - +
+|-> = 4
+
+2 3 2 ^ ^
+|-> = 512
+
+2 3+*
+(ERROR) Not enough values to perform operation: *
+
+2 3 4 +
+|-> = 7
+
+2.4 3+
+(ERROR) Invalid character: .
+
+5 5 + + 5 5 - -
+(ERROR) Not enough values to perform operation: +
+
+5 5 + + 5 5 -
+(ERROR) Not enough values to perform operation: +
+
+2 0 %
+(ERROR) Deviding by 0 - operation: %
+
+2 0 /
+(ERROR) Deviding by 0 - operation: /
+
+0 0 /
+(ERROR) Deviding by 0 - operation: /
+
