@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{titling}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\pretitle{\begin{center}\Huge\bfseries}
+\posttitle{\par\end{center}\vskip 0.5em}
+\preauthor{\begin{center}\Large}
+\postauthor{\end{center}}
+\predate{\par\large\centering}
+\postdate{\par}
+
+\title{Języki formalne i Techniki Translacji \newline Zadanie Domowe}
+\author{Jakub Musiał 268442}
+\date{Styczeń 2024}
+
+\begin{document}
+
+\maketitle
+
+\hspace{1cm}
+
+\section*{Lista 4 - Zadanie 7}
+
+\subsection*{Opis zadania}
+    Określić, czy język słów nad alfabetem $\{1, 2, 3, 4\}$ takich, że liczba symboli $1$ jest równa liczbie symboli $2$ oraz liczba symboli $3$ jest równa liczbie symboli $4$ jest bezkontekstowy.
+
+\subsection*{Rozwiązanie}
+    Zadany język:
+    $$
+    L = \{w \in \{1, 2, 3, 4\}^* : |w|_1 = |w|_2 \land |w|_3 = |w|_4\}
+    $$
+    \noindent
+    nie jest bezkontekstowy.
+    \newline\newline
+    \textbf{Dowód:}
+    \newline
+    Załóżmy nie wprost, że $L$ jest językiem bezkontekstowym.
+    \newline
+    Niech $n$ będzie stałą z lematu Ogdena oraz $m > n$. Musimy znaleźć podział $uvwxy$ słowa $z \in L$ taki, że:
+    \begin{enumerate}
+        \item $v$ i $x$ mają łącznie conajmniej jeden oznaczony symbol
+        \item $vwx$ ma conajwyżej $n$ oznaczonych symboli
+    \end{enumerate}
+    \noindent
+    Weźmy słowo $z = 1^m 3^m 2^m 4^m \in L$. Oznaczmy wszystkie symbole $2$ oraz $3$ w słowie $z$.
+    \newline
+    Łatwo zauważyć, że nie możemy pompować wyłącznie symboli $1$ - wtedy musielibyśmy wyznaczyć podział słowa $z$ taki, że $vwx$ składa się wyłącznie z symboli $1$, jednak taki podział nie spełnia pierwszego warunku. Analogicznie nie możemy pompować wyłącznie symboli $4$.
+    \newline\newline
+    Weźmy zatem podział $z = uvwxy$ taki, że w $|v|_2 > 1$. Tutaj możemy zauważyć, że niezależnie od tego, który z symboli $2$ byłby pompowany, nie możemy pompować symboli $4$ ($|v|_4 = 0 \land |x|_4 = 0$), ponieważ możemy pompować maksymalnie $n$ oznaczonych symboli, więc żeby pompować jednocześnie symbole $2$ i $4$ podsłowo $vwx$ musiałoby zawierać wszystkie symbole $3$, których jest $m > n$ i wszystkie są oznaczone, co jest sprzeczne z drugim warunkiem. Analogicznie nie możemy pompować jednocześnie symboli $1$ i $3$.
+    \newline\newline
+    Możemy zatem pompować słowo $z$ wyłącznie dla podziałów $uvwxy$ takich, że $(|v|_2 > 0 \land |v|_4 = |x|_4 = 0) \lor (|x|_2 > 0 \land |v|_4 = |x|_4 = 0)$ oraz analogiczne podziały dla symboli $2$ i $3$. Możemy zauważyć jednak, że dla takich podziałów $(\forall i \ne 1)(uv^iwx^iy \notin L)$.
+    \newline
+    Stąd język nie jest bezkontekstowy. $\square$
+
+
+\newpage
+
+\end{document}
